@@ -128,10 +128,25 @@ $(document).ready(function () {
       if (answers == correctAnswer) {
         $('.congrats').text('Right Answer😁👍').css({ "color": "green" });
         $('.error').hide();
+        setTimeout(function () {
+          console.log('hiidd');
+
+          var clap = document.getElementById("clap");
+          clap.play();
+          sad.pause();
+      }, 100);
+       
       }
       else {
         $('.congrats').text('Wrong Answer☹️').css({ "color": "red" });
         $('.error').hide();
+        setTimeout(function () {
+          console.log('hii');
+          var sad = document.getElementById("sad");
+          sad.play();
+          clap.pause();
+      },100);
+       
       }
     });
 
@@ -146,9 +161,11 @@ $(document).ready(function () {
       $(".choices").prop("checked", false);
       $('.congrats').hide();
       document.getElementById("overlay").style.display = "none";
-
+      sad.pause();
+      clap.pause();
+      sad.currentTime = 0;
       
-
+      clap.currentTime = 0;
    
     });
 
